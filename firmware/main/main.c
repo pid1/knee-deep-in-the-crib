@@ -78,7 +78,8 @@ static void button_task(void *arg)
 static int hexbytes(char *s, uint8_t *out, int max)
 {
     int n = 0;
-    for (char *t = strtok(s, " "); t && n < max; t = strtok(NULL, " ")) out[n++] = strtol(t, NULL, 16);
+    char *save;
+    for (char *t = strtok_r(s, " ", &save); t && n < max; t = strtok_r(NULL, " ", &save)) out[n++] = strtol(t, NULL, 16);
     return n;
 }
 

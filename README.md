@@ -52,7 +52,9 @@ Don't pass `--baud`; the USB-Serial-JTAG link breaks when esptool tries to chang
 
 ## Build and flash
 
-Needs [ESP-IDF v5.2](https://docs.espressif.com/projects/esp-idf/en/v5.2.2/esp32s3/get-started/).
+Needs [ESP-IDF v5.2](https://docs.espressif.com/projects/esp-idf/en/v5.2.8/esp32s3/get-started/)
+(v5.2.8 is the newest patch release). Stay on 5.2: from 5.3 on, `esp_codec_dev` switches to the
+new I2C master driver, which can't share the bus with the legacy driver `board.c` uses.
 `esp_codec_dev` comes in through the component manager.
 
 ```sh
@@ -77,8 +79,11 @@ The firmware keeps a USB serial console. `tools/con.py` talks to it without rese
 the chip:
 
 ```sh
-python tools/con.py "text 1337" "lamp 0 1 0 0" "sfx bfg"
+uv run tools/con.py "text 1337" "lamp 0 1 0 0" "sfx bfg"
 ```
+
+The Python tools' dependencies (pyserial, Pillow, numpy) are in `pyproject.toml`; `uv run`
+installs them on first use.
 
 | command | does |
 |---|---|

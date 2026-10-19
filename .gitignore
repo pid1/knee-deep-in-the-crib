@@ -18,3 +18,4 @@ tools/camsnap/camsnap
 __pycache__/
 *.pyc
 .DS_Store
+.venv/

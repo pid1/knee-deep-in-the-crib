@@ -1,0 +1,20 @@
+# ESP-IDF build output
+firmware/build/
+firmware/managed_components/
+firmware/sdkconfig
+firmware/sdkconfig.old
+
+# Never commit a flash dump or anything derived from vendor firmware:
+# it is Nanit's copyrighted code and it holds your device's secrets.
+*.bin
+backups/
+analysis/
+*.asm
+
+# Local capture output from the tools
+captures/
+tools/nudge/nudge
+tools/camsnap/camsnap
+__pycache__/
+*.pyc
+.DS_Store

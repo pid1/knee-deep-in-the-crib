@@ -1,0 +1,10 @@
+[
+  {
+    "package": "esp-idf",
+    "held_at": "5.2.8",
+    "latest": "6.1",
+    "reason": "Needs idf.py build on hardware. From IDF 5.3 (so 5.5.6 and 6.x too), esp_codec_dev uses the new i2c_master driver unless CONFIG_CODEC_I2C_BACKWARD_COMPATIBLE is set, while firmware/main/board.c uses the legacy driver/i2c.h API, so moving IDF means porting board.c to i2c_master (and esp_vfs_usb_serial_jtag.h/esp_vfs_dev.h to their 5.3+ replacements) and testing audio, lamp and display on a unit. No toolchain or device in the factory.",
+    "added": "2026-10-19",
+    "revisit": "2026-11-16"
+  }
+]
